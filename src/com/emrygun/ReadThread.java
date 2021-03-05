@@ -82,7 +82,7 @@ public class ReadThread extends Thread {
                 break;
             //Return in an exceptional situation
             default:
-                return;
+                break;
         }
     }
 }

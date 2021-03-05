@@ -65,7 +65,9 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
         UserList.setModel(UsersListModel);
 
         //Action and Key Listeners
-        addKeyListener(ChatAppClientKeys);
+        MessageInputField.addKeyListener(ChatAppClientKeys);
+        GroupChatTextArea.addKeyListener(ChatAppClientKeys);
+
         SendButton.addActionListener(ChatAppClientActions);
         MessageInputField.addActionListener(ChatAppClientActions);
 
@@ -81,7 +83,7 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
 
         @Override
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_SPACE)
+            if (e.getKeyCode() == KeyEvent.VK_F2)
                     clientSwitchUserSpace(ChatAppClient.this);
         }
 
@@ -98,7 +100,6 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
             //Send Button and Enter Message
             if ((e.getSource() == SendButton) | (e.getSource() == MessageInputField)) {
                 clientSendMessage(ChatAppClient.this);
-                clientSwitchUserSpace(ChatAppClient.this);
             }
         }
     };
