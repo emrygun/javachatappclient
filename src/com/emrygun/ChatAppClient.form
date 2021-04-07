@@ -42,15 +42,20 @@
                     <properties/>
                     <border type="bevel-lowered"/>
                     <children>
-                      <component id="1acd8" class="javax.swing.JTextArea" binding="GroupChatTextArea">
+                      <component id="b74b8" class="javax.swing.JTextPane" binding="GroupChatTextArea">
                         <constraints/>
                         <properties>
-                          <dropMode value="INSERT"/>
-                          <editable value="false"/>
+                          <contentType value="text/plain"/>
+                          <editable value="true"/>
+                          <enabled value="true"/>
                           <focusCycleRoot value="true"/>
-                          <lineWrap value="true"/>
-                          <wrapStyleWord value="true"/>
+                          <focusable value="false"/>
+                          <opaque value="true"/>
+                          <verifyInputWhenFocusTarget value="true"/>
                         </properties>
+                        <clientProperties>
+                          <JEditorPane.w3cLengthUnits class="java.lang.Boolean" value="false"/>
+                        </clientProperties>
                       </component>
                     </children>
                   </scrollpane>
@@ -85,7 +90,7 @@
                   </grid>
                 </children>
               </grid>
-              <grid id="105d8" binding="SettingsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="105d8" binding="SettingsPanel" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <tabbedpane title="Untitled"/>
@@ -93,12 +98,134 @@
                 <properties/>
                 <border type="bevel-lowered"/>
                 <children>
-                  <component id="2c2ae" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+                  <grid id="cb2c" binding="ColorSettingPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
-                  </component>
+                    <border type="none" title="Color Selector"/>
+                    <children>
+                      <component id="4abd" class="javax.swing.JSlider" binding="redColorSlider">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-65536"/>
+                          <maximum value="255"/>
+                          <value value="0"/>
+                        </properties>
+                      </component>
+                      <component id="64f79" class="javax.swing.JSlider" binding="greenColorSlider">
+                        <constraints>
+                          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-16711936"/>
+                          <maximum value="255"/>
+                          <value value="0"/>
+                        </properties>
+                      </component>
+                      <component id="54165" class="javax.swing.JSlider" binding="blueColorSlider">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-16776961"/>
+                          <maximum value="255"/>
+                          <paintTicks value="false"/>
+                          <value value="0"/>
+                        </properties>
+                      </component>
+                      <grid id="2be94" binding="colorBox" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <minimum-size width="60" height="20"/>
+                            <preferred-size width="60" height="30"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
+                    </children>
+                  </grid>
+                  <vspacer id="bc3d">
+                    <constraints>
+                      <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                  <grid id="3449" binding="FontSizePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none" title="Font Size"/>
+                    <children>
+                      <component id="cdb74" class="javax.swing.JSlider" binding="textSizeSlider">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <maximum value="20"/>
+                          <minimum value="10"/>
+                          <minorTickSpacing value="1"/>
+                          <paintLabels value="false"/>
+                          <paintTicks value="true"/>
+                          <paintTrack value="true"/>
+                          <snapToTicks value="true"/>
+                          <value value="10"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="f64ca" binding="NotificationPanel" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none" title="Notifications"/>
+                    <children>
+                      <component id="37b23" class="javax.swing.JCheckBox" binding="userMessageNotificationCheckBox">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <label value="Kullanıcı Mesajları"/>
+                          <selected value="true"/>
+                          <text value="Kullanıcı Mesajları"/>
+                        </properties>
+                      </component>
+                      <component id="1757" class="javax.swing.JCheckBox" binding="userJoinedNotificationCheckBox">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <label value="Kullanıcı Katıldı"/>
+                          <selected value="true"/>
+                          <text value="Kullanıcı Katıldı"/>
+                        </properties>
+                      </component>
+                      <component id="df45d" class="javax.swing.JCheckBox" binding="userLeftNotificationCheckBox">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <label value="Kullanıcı Ayrıldı"/>
+                          <selected value="true"/>
+                          <text value="Kullanıcı Ayrıldı"/>
+                        </properties>
+                      </component>
+                      <vspacer id="37f3">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                    </children>
+                  </grid>
                 </children>
               </grid>
             </children>

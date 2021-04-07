@@ -1,6 +1,7 @@
 package com.emrygun;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -24,10 +25,20 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
     private JPanel InputSpace;
     private JScrollPane GroupChatScreen;
     private JPanel SettingsPanel;
-    private JSlider slider1;
-    public JTextArea GroupChatTextArea;
+    public JTextPane GroupChatTextArea;
     private JList UserList;
     private JScrollPane UserListScrollPane;
+    private JSlider redColorSlider;
+    private JSlider greenColorSlider;
+    private JSlider blueColorSlider;
+    private JPanel ColorSettingPanel;
+    private JPanel colorBox;
+    private JPanel FontSizePanel;
+    private JSlider textSizeSlider;
+    private JCheckBox userMessageNotificationCheckBox;
+    private JCheckBox userJoinedNotificationCheckBox;
+    private JCheckBox userLeftNotificationCheckBox;
+    private JPanel NotificationPanel;
 
     //Client Stuff
     public String Username = new String();
@@ -39,6 +50,9 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
     PrintWriter clientSocketWriter;
     ReadThread clientReadThread;
 
+    //Message text style
+    Color textColor;
+    int textSize = 10;
 
     //Constructor
     ChatAppClient(String WindowText, Socket clientSocket) throws IOException {
@@ -60,7 +74,9 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
         //Add Tabs
         TabbedPanel.addTab("Group Chat", GroupChat);
         TabbedPanel.addTab("Settings", SettingsPanel);
-
+        //Paint the colorBox
+        colorBox.setBackground(new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue()));
+        textColor = Color.BLACK;
         //Bind UserList to Users model
         UserList.setModel(UsersListModel);
 
@@ -73,6 +89,26 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
 
         setVisible(true);
         setUsername(this);
+
+        //Update Color
+        redColorSlider.addChangeListener(e -> {
+            colorBox.setBackground(new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue()));
+            textColor = new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue());
+        });
+
+        greenColorSlider.addChangeListener(e -> {
+            colorBox.setBackground(new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue()));
+            textColor = new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue());
+        });
+
+        blueColorSlider.addChangeListener(e -> {
+            colorBox.setBackground(new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue()));
+            textColor = new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue());
+        });
+
+        textSizeSlider.addChangeListener(e -> {
+            textSize = textSizeSlider.getValue();
+        });
     }
 
     //General "Key Listener" for Client"
@@ -103,4 +139,17 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
             }
         }
     };
+
+    //Checkbox
+    public boolean getUserMessageNotificationCheckBoxValue() {
+        return userMessageNotificationCheckBox.isSelected();
+    }
+
+    public boolean getUserJoinedNotificationCheckBoxValue() {
+        return userJoinedNotificationCheckBox.isSelected();
+    }
+
+    public boolean getUserLeftNotificationCheckBoxValue() {
+        return userLeftNotificationCheckBox.isSelected();
+    }
 }

@@ -26,7 +26,9 @@ public interface ChatAppInterfaceController {
         //Check if messagebox empty or not
         if (instance.MessageInputField.getText().equals("")) return;
         else {
-            instance.clientSocketWriter.println(instance.MessageInputField.getText());
+            //instance.clientSocketWriter.println(instance.MessageInputField.getText());
+            instance.clientSocketWriter.println(String.format("%03d%03d%03d%02d%s",
+                    instance.textColor.getRed(), instance.textColor.getGreen(), instance.textColor.getBlue(), instance.textSize, instance.MessageInputField.getText()));
             instance.MessageInputField.setText("");
         }
     }
