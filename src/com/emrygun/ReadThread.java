@@ -69,7 +69,7 @@ public class ReadThread extends Thread {
             //Get Server Message
             case S_MESSAGE:
                 message = serverMessage.substring(1);
-                appendToPane(instance.GroupChatTextArea, message + "\n", Color.RED, 15, true);
+                appendToPane(instance.getGroupChatTextArea(), message + "\n", Color.RED, 15, true);
                 //new Thread(() -> { playSoundInternal(new File("sounds/serverMessage.mid")); }).start();
                 break;
             //Get User Message
@@ -80,7 +80,7 @@ public class ReadThread extends Thread {
                         Integer.parseInt(serverMessage.substring(7,10)));
                  messageSize = Integer.parseInt(serverMessage.substring(10,12));
                 message = serverMessage.substring(12);
-                appendToPane(instance.GroupChatTextArea, message + "\n", messageColor, messageSize, false);
+                appendToPane(instance.getGroupChatTextArea(), message + "\n", messageColor, messageSize, false);
 
                 //Play sound in new thread
                 if(instance.getUserMessageNotificationCheckBoxValue())
@@ -90,17 +90,17 @@ public class ReadThread extends Thread {
             case USERLIST:
                 String[] userTokens = serverMessage.substring(1).split("/1/");
                 for (String t : userTokens)
-                    instance.UsersListModel.addElement(t);
+                    instance.getUsersListModel().addElement(t);
                 break;
             //Get Connection Info
             case CONNECT:
-                instance.UsersListModel.addElement(serverMessage.substring(1));
+                instance.getUsersListModel().addElement(serverMessage.substring(1));
                 if(instance.getUserJoinedNotificationCheckBoxValue())
                     new Thread(() -> { playSoundInternal(new File("sounds/userConnected.mid")); }).start();
                 break;
             //Get Disconnection info
             case DISCONNECT:
-                instance.UsersListModel.removeElement(serverMessage.substring(1));
+                instance.getUsersListModel().removeElement(serverMessage.substring(1));
                 if (instance.getUserLeftNotificationCheckBoxValue())
                     new Thread(() -> { playSoundInternal(new File("sounds/userDisconnected.mid")); }).start();
                 break;

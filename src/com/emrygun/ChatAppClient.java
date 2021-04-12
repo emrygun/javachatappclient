@@ -17,15 +17,15 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
     //JFrame objects
     private JPanel MainPanel;
     private JPanel ChatSpace;
-    public JPanel UserSpace;
+    private JPanel UserSpace;
     private JTabbedPane TabbedPanel;
     private JPanel GroupChat;
-    public JTextField MessageInputField;
+    private JTextField MessageInputField;
     private JButton SendButton;
     private JPanel InputSpace;
     private JScrollPane GroupChatScreen;
     private JPanel SettingsPanel;
-    public JTextPane GroupChatTextArea;
+    private JTextPane GroupChatTextArea;
     private JList UserList;
     private JScrollPane UserListScrollPane;
     private JSlider redColorSlider;
@@ -41,8 +41,8 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
     private JPanel NotificationPanel;
 
     //Client Stuff
-    public String Username = new String();
-    public DefaultListModel UsersListModel = new DefaultListModel();
+    private String Username = new String();
+    private DefaultListModel UsersListModel = new DefaultListModel();
 
     Socket clientSocket;
     OutputStream clientOutput;
@@ -152,4 +152,13 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
     public boolean getUserLeftNotificationCheckBoxValue() {
         return userLeftNotificationCheckBox.isSelected();
     }
+
+    public JPanel getUserSpace() { return UserSpace; }
+    public JTextField getMessageInputField() { return MessageInputField; }
+    public JTextPane getGroupChatTextArea() { return GroupChatTextArea; }
+    public String getUsername() { return Username; }
+    public void setUsername(String Username) { this.Username = Username; }
+    public DefaultListModel getUsersListModel() { return UsersListModel; }
+
+
 }
