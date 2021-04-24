@@ -17,13 +17,13 @@ public class Main {
         String hostname = new String(args[0]);
         int port = Integer.parseInt(args[1]);
         Socket clientSocket = null;
-        String WindowText = new String("Connected to: " + hostname + ":" + port);
+        String WindowText = new String("Bağlanıldı: " + hostname + ":" + port);
 
         //Bind socket
         try {
             clientSocket = new Socket(hostname, port);
         } catch(ConnectException ex) {
-            JOptionPane.showMessageDialog(null, "Could not connect " + hostname + ":" + port);
+            JOptionPane.showMessageDialog(null, hostname + ":" + port + " sunucusuna bağlanılamadı.");
             System.exit(0);
         }
 

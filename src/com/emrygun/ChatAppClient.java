@@ -72,8 +72,8 @@ public class ChatAppClient<Users> extends JFrame implements ChatAppInterfaceCont
         clientReadThread.start();
 
         //Add Tabs
-        TabbedPanel.addTab("Group Chat", GroupChat);
-        TabbedPanel.addTab("Settings", SettingsPanel);
+        TabbedPanel.addTab("Mesajlar", GroupChat);
+        TabbedPanel.addTab("Ayarlar", SettingsPanel);
         //Paint the colorBox
         colorBox.setBackground(new Color(redColorSlider.getValue(), greenColorSlider.getValue(), blueColorSlider.getValue()));
         textColor = Color.BLACK;

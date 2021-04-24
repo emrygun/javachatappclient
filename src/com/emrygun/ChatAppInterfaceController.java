@@ -8,13 +8,13 @@ public interface ChatAppInterfaceController {
     default void setUsername(ChatAppClient instance) {
         //Check for username is not empty and username list not including the username
         while ((instance.getUsername().isEmpty()) | (instance.getUsersListModel().contains(instance.getUsername()))) {
-            instance.setUsername(JOptionPane.showInputDialog(instance, "Enter Username"));
+            instance.setUsername(JOptionPane.showInputDialog(instance, "Kullanıcı Adınızı Girin:"));
             //If you press cancel
             if (instance.getUsername() == null) {
                 System.exit(0);
             }
             else if (instance.getUsersListModel().contains(instance.getUsername())) {
-                JOptionPane.showMessageDialog(null, instance.getUsername() + " is taken.");
+                JOptionPane.showMessageDialog(null, instance.getUsername() + " kullanılıyor.");
             }
         }
 

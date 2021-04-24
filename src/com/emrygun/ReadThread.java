@@ -53,7 +53,7 @@ public class ReadThread extends Thread {
             }
             //If server closed
             catch (NullPointerException ex) {
-                JOptionPane.showMessageDialog(instance, socket.getInetAddress() + ":" + socket.getPort() + " is closed.");
+                JOptionPane.showMessageDialog(instance, socket.getInetAddress() + ":" + socket.getPort() + " kapatıldı.");
                 System.exit(0);
                 break;
             }
