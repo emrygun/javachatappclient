@@ -115,7 +115,7 @@ public class ReadThread extends Thread {
         StyleContext sc = StyleContext.getDefaultStyleContext();
         AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, c);
 
-        aset = sc.addAttribute(aset, StyleConstants.FontFamily, "Lucida Console");
+        aset = sc.addAttribute(aset, StyleConstants.FontFamily, "Arial");
         aset = sc.addAttribute(aset, StyleConstants.FontSize, fontSize);
         aset = sc.addAttribute(aset, StyleConstants.Bold, isBold);
         aset = sc.addAttribute(aset, StyleConstants.Alignment, StyleConstants.ALIGN_JUSTIFIED);
